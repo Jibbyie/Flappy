@@ -18,6 +18,10 @@ public class PlayerCollisions : MonoBehaviour
     {
         broDied.Play();
         Debug.Log("PARTICLES" + Instantiate(prefabPS, transform.position, Quaternion.identity));
+
+        // Pass the player score to the RestartHandling script
+        RestartHandling.Instance.SetPlayerScore(playerScore);
+
         Destroy(gameObject);
         RestartUI.gameObject.SetActive(true);
     }
@@ -34,7 +38,6 @@ public class PlayerCollisions : MonoBehaviour
     {
         playerScore += 0.5f;
         scoreText.text = playerScore.ToString();
-        Debug.Log("Player scored a point");
         scoredPoint.Play();
     }
 
