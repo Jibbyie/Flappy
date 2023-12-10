@@ -11,11 +11,13 @@ public class PlayerCollisions : MonoBehaviour
     public AudioSource scoredPoint;
     public AudioSource broDied;
 
+    public GameObject prefabPS;
+
     private void Die()
     {
-        Debug.Log("Player hit something");
         broDied.Play();
-        Time.timeScale = 0;
+        Debug.Log("PARTICLES" + Instantiate(prefabPS, transform.position, Quaternion.identity));
+        Destroy(gameObject);
     }
 
     private void OnCollisionEnter2D(Collision2D col)
