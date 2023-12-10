@@ -12,12 +12,14 @@ public class PlayerCollisions : MonoBehaviour
     public AudioSource broDied;
 
     public GameObject prefabPS;
+    public GameObject RestartUI;
 
     private void Die()
     {
         broDied.Play();
         Debug.Log("PARTICLES" + Instantiate(prefabPS, transform.position, Quaternion.identity));
         Destroy(gameObject);
+        RestartUI.gameObject.SetActive(true);
     }
 
     private void OnCollisionEnter2D(Collision2D col)
