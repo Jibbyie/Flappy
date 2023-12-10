@@ -23,6 +23,7 @@ public class MasterPipeSpawner : MonoBehaviour
             // Signal both spawners to spawn a pair of pipes
             lowerPipeSpawner.SpawnPipe();
             upperPipeSpawner.SpawnPipe();
+
         }
     }
 }

@@ -5,13 +5,14 @@ using UnityEngine;
 
 public class PipeMovement : MonoBehaviour
 {
-    public float moveSpeed;
+    private float moveSpeed = 5f;
     private float direction;
-
 
     void Update()
     {
         direction = -moveSpeed * Time.deltaTime;
         transform.Translate(direction, 0, 0);
+
     }
+
 }

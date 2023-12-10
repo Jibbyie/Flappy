@@ -5,7 +5,6 @@ using UnityEngine;
 public class PipeSpawner : MonoBehaviour
 {
     public GameObject pipePrefab;
-    public float verticalGapSize = 2.0f; 
     public float minY = 0.0f;
     public float maxY = 5.0f;
 
@@ -25,4 +24,5 @@ public class PipeSpawner : MonoBehaviour
             isSpawning = false;
         }
     }
+
 }
