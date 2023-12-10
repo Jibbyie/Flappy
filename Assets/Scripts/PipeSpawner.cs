@@ -5,38 +5,23 @@ using UnityEngine;
 public class PipeSpawner : MonoBehaviour
 {
     public GameObject pipePrefab;
-    private float timeRemaining = 5f;
-    public float respawnTimer;
-    public bool timerIsRunning = false;
+    public float verticalGapSize = 2.0f; 
+    public float minY = 0.0f;
+    public float maxY = 5.0f;
+    private bool isSpawning = false; // Added a flag to prevent simultaneous spawning
 
-    // Start is called before the first frame update
-    void Start()
+    public void SpawnPipe()
     {
-        timerIsRunning = true;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(timerIsRunning)
+        if (!isSpawning)
         {
-            if(timeRemaining > 0)
-            {
-                timeRemaining -= Time.deltaTime;
-            }
-            else
-            {
-                SpawnPipe();
-                timeRemaining = respawnTimer;
-            }
+            isSpawning = true;
+
+            GameObject newPipe = Instantiate(pipePrefab, transform.position, transform.rotation);
+            float pipeY = Random.Range(minY, maxY);
+            newPipe.transform.position = new Vector3(transform.position.x, pipeY, transform.position.z);
+
+            isSpawning = false;
         }
     }
 
-    private void SpawnPipe()
-    {
-        GameObject pipeClone;
-        pipeClone = Instantiate(pipePrefab, transform.position, transform.rotation);
-        Debug.Log("Pipe spawned!");
-        timerIsRunning = true;
-    }
 }
