@@ -8,6 +8,8 @@ public class PipeSpawner : MonoBehaviour
     public float verticalGapSize = 2.0f; 
     public float minY = 0.0f;
     public float maxY = 5.0f;
+
+    public float despawnTimer;
     private bool isSpawning = false; // Added a flag to prevent simultaneous spawning
 
     public void SpawnPipe()
@@ -23,5 +25,4 @@ public class PipeSpawner : MonoBehaviour
             isSpawning = false;
         }
     }
-
 }

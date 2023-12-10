@@ -7,13 +7,8 @@ public class PipeMovement : MonoBehaviour
 {
     public float moveSpeed;
     private float direction;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
+
     void Update()
     {
         direction = -moveSpeed * Time.deltaTime;
