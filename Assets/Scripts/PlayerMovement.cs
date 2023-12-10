@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce;
     private Rigidbody2D rb;
 
+    public AudioSource jumpSound;
+
     void Start()
     {
         rb = GetComponentInChildren<Rigidbody2D>();
@@ -29,5 +31,6 @@ public class PlayerMovement : MonoBehaviour
     private void Jump()
     {
         rb.velocity = new Vector2(rb.velocity.x, jumpForce) * Time.deltaTime;
+        jumpSound.Play();
     }
 }

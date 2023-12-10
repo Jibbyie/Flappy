@@ -8,15 +8,13 @@ public class PlayerCollisions : MonoBehaviour
     public float playerScore;
     public TextMeshProUGUI scoreText;
 
-
-    private void Update()
-    {
-
-    }
+    public AudioSource scoredPoint;
+    public AudioSource broDied;
 
     private void Die()
     {
         Debug.Log("Player hit something");
+        broDied.Play();
         Time.timeScale = 0;
     }
 
@@ -33,6 +31,7 @@ public class PlayerCollisions : MonoBehaviour
         playerScore += 0.5f;
         scoreText.text = playerScore.ToString();
         Debug.Log("Player scored a point");
+        scoredPoint.Play();
     }
 
     private void OnTriggerEnter2D(Collider2D col)

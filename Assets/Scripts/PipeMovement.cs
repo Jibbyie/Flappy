@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PipeMovement : MonoBehaviour
 {
-    private float moveSpeed = 5f;
+    private float moveSpeed = 7.5f;
     private float direction;
 
     void Update()
